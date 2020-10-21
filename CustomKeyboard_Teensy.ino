@@ -1,3 +1,5 @@
+#define ACCESS_KEY 1234
+
 void setup() {
   randomSeed(analogRead(0));
   Serial.begin(115200); // устанавливаем последовательное соединение
@@ -9,6 +11,7 @@ byte data[1024];
 struct base_data
 {
    byte type;
+   word key;
    word timing;
    byte floating_border;
    byte arg[512];
@@ -28,10 +31,13 @@ void loop() {
     
     
 
-    if(sdata->type == 0) {
+    if((sdata->type == 0) && (sdata->key == ACCESS_KEY)) {
       Serial.print("type = ");
       Serial.println(sdata->type);
-  
+
+      Serial.print("key = ");
+      Serial.println(sdata->key);
+      
       Serial.print("timing = ");
       Serial.println(sdata->timing);
   
@@ -39,18 +45,18 @@ void loop() {
       Serial.println(sdata->floating_border);
     }
     
-    if(sdata->type == 1) {
+    if((sdata->type == 1) && (sdata->key == ACCESS_KEY)) {
       Serial.println((char*)sdata->arg);
       Keyboard.print((char*)sdata->arg);
     }
 
-    if(sdata->type == 2) {
+    if((sdata->type == 2) && (sdata->key == ACCESS_KEY)) {
       Keyboard.press((sdata->arg)[0]);
       delay(sdata->timing);
       Keyboard.release((sdata->arg)[0]);
     }
     
-    if(sdata->type == 3) {
+    if((sdata->type == 3) && (sdata->key == ACCESS_KEY)) {
       int i = 0;
       while( sdata->arg[i]!=0 ) {
         Keyboard.press((sdata->arg)[i]);
@@ -61,7 +67,7 @@ void loop() {
       }
     }
 
-    if(sdata->type == 4) {
+    if((sdata->type == 4) && (sdata->key == ACCESS_KEY)) {
       int i = 0;
       while( sdata->arg[i]!=0 ) {
         Keyboard.press((sdata->arg)[i]);

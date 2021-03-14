@@ -1,5 +1,12 @@
 # CustomKeyboard_Teensy
 
-For the firmware, we use the Arduino IDE with the Teensy add-on installed
+For the firmware, we use the Arduino IDE.
 
-Details: https://www.pjrc.com/teensy/
+For Teensy: 
+  Teensy add-on install
+  Details: https://www.pjrc.com/teensy/
+  Use usb type: Serial + Keyboard + Mouse + Joystick
+  Upload
+  
+For Arduino Leonardo: 
+  Upload (No dependencies)

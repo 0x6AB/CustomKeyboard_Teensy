@@ -1,3 +1,5 @@
+#include "Keyboard.h"
+
 #define ACCESS_KEY 1234
 
 void setup() {

@@ -2,7 +2,7 @@
 
 For the firmware, we use the Arduino IDE.
 
-For Teensy: 
+# For Teensy: 
 
   Teensy add-on install
   
@@ -13,6 +13,6 @@ For Teensy:
   Upload
   
   
-For Arduino Leonardo: 
+# For Arduino Leonardo: 
 
   Upload (No dependencies)
